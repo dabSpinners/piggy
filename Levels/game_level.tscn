@@ -706,6 +706,7 @@ sources/4 = SubResource("TileSetAtlasSource_e5s21")
 sources/5 = SubResource("TileSetAtlasSource_pxp2l")
 
 [node name="GameLevel" type="Node2D"]
+y_sort_enabled = true
 
 [node name="PlayerCat" parent="." instance=ExtResource("1_xf7pe")]
 position = Vector2(344, 170)
@@ -738,3 +739,9 @@ position_smoothing_speed = 10.0
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("8_hymr3")]
 position = Vector2(123, 127)
+
+[node name="AnimalCow" parent="." instance=ExtResource("8_hymr3")]
+position = Vector2(281, 95)
+
+[node name="AnimalCow2" parent="." instance=ExtResource("8_hymr3")]
+position = Vector2(224, 176)

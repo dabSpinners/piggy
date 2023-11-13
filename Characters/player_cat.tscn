@@ -258,5 +258,5 @@ tree_root = SubResource("AnimationNodeStateMachine_skbkn")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_s8ig6")
-parameters/Idle/blend_position = Vector2(0.198473, 0.210112)
+parameters/Idle/blend_position = Vector2(-0.595558, 0.641256)
 parameters/Walk/blend_position = Vector2(0.0624338, 0.129814)
