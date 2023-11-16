@@ -1,24 +1,26 @@
-extends CharacterBody2D
+extends ParentCharacter
 
 enum COW_STATE { IDLE, WALK }
 
-@export var move_speed: float = 20
 @export var idle_time: float = 5
 @export var walk_time: float = 2
 
-@onready var animation_tree = $AnimationTree
-@onready var state_machine = animation_tree.get("parameters/playback")
-@onready var sprite = $Sprite2D
 @onready var timer = $Timer
 
 var move_direction: Vector2 = Vector2.ZERO
 var current_state: COW_STATE = COW_STATE.IDLE
+
+func _init():
+	move_speed = 20
 
 func _ready():
 	select_new_direction()
 	pick_new_state()
 	
 func _physics_process(_delta):
+	walk(Vector2.ZERO)
+	
+func walk(input_direction: Vector2):
 	if(current_state == COW_STATE.WALK):
 		velocity = move_direction * move_speed
 		move_and_slide()

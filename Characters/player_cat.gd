@@ -1,14 +1,14 @@
-extends CharacterBody2D
+extends ParentCharacter
 
-@export var move_speed: float = 50
 @export var run_multiplier: float = 2
 @export var dash_multiplier: float = 25
 
 @export var starting_direction: Vector2 = Vector2(0, 1)
 
-@onready var animation_tree = $AnimationTree
-@onready var state_machine = animation_tree.get("parameters/playback")
-
+func _init():
+	move_speed = 50
+	health = 10
+	
 func _ready():
 	update_animation_parameters(starting_direction)
 	
@@ -19,10 +19,10 @@ func _physics_process(_delta):
 	)
 	
 	update_animation_parameters(input_direction)
-	moving_system(input_direction)
+	walk(input_direction)
 	pick_new_animation_state()
 	
-func moving_system(input_direction: Vector2):
+func walk(input_direction: Vector2):
 	if (Input.is_action_pressed('shift')):
 		velocity = input_direction * move_speed * run_multiplier
 	else:
@@ -43,3 +43,4 @@ func pick_new_animation_state():
 		state_machine.travel("Walk")
 	else:
 		state_machine.travel("Idle")
+		

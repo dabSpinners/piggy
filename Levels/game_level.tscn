@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://chatebt1e6y7b"]
+[gd_scene load_steps=18 format=3 uid="uid://chatebt1e6y7b"]
 
 [ext_resource type="PackedScene" uid="uid://b62scg0lrpqkr" path="res://Characters/player_cat.tscn" id="1_xf7pe"]
 [ext_resource type="Texture2D" uid="uid://dvn5tdwred8kw" path="res://art/Sprout Lands - Sprites - Basic pack/Tilesets/Grass.png" id="2_m2wb0"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://x5gudogefglr" path="res://art/Sprout Lands - Sprites - Basic pack/Tilesets/Wooden House.png" id="6_ixpa8"]
 [ext_resource type="Texture2D" uid="uid://011d2pg86l03" path="res://art/Sprout Lands - Sprites - Basic pack/Tilesets/Fences.png" id="7_03t7p"]
 [ext_resource type="PackedScene" uid="uid://cf7a3de5tjanr" path="res://Characters/animal_cow.tscn" id="8_hymr3"]
+[ext_resource type="PackedScene" uid="uid://epy20xp5fbr6" path="res://Objects/chest.tscn" id="9_5c3vq"]
+[ext_resource type="PackedScene" uid="uid://dtewl4t8scuwf" path="res://Objects/bad.tscn" id="10_2j7db"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0cj38"]
 texture = ExtResource("2_m2wb0")
@@ -709,10 +711,16 @@ sources/5 = SubResource("TileSetAtlasSource_pxp2l")
 y_sort_enabled = true
 
 [node name="PlayerCat" parent="." instance=ExtResource("1_xf7pe")]
-position = Vector2(344, 170)
+position = Vector2(343, 183)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerCat"]
-remote_path = NodePath("../../Camera2D")
+position = Vector2(-13, 5)
+remote_path = NodePath("../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="PlayerCat"]
+position = Vector2(-13, 5)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(480, 422)
@@ -732,16 +740,21 @@ layer_1/z_index = -5
 layer_1/tile_data = PackedInt32Array(-917531, 196608, 2, -524298, 196608, 2, -393233, 196608, 2, -196617, 196608, 2, -1310720, 196608, 2, -196633, 196608, 2, -983067, 131072, 2, -524316, 131072, 2, -2162677, 65537, 0, -2097141, 65537, 1, -2031605, 65537, 2, -2162676, 131073, 0, -2097140, 131073, 1, -2031604, 262145, 2, -2162675, 131073, 0, -2097139, 131073, 1, -2031603, 131073, 1, -2162674, 131073, 0, -2162673, 131073, 0, -2162672, 131073, 0, -2162671, 131073, 0, -2162670, 131073, 0, -2162669, 131073, 0, -2162668, 131073, 0, -2162667, 131073, 0, -2031602, 131073, 1, -2031601, 131073, 1, -2031600, 131073, 1, -2031599, 131073, 1, -2031598, 131073, 1, -2031597, 131073, 1, -2031596, 131073, 1, -2031595, 131073, 1, -2097138, 131073, 1, -2097137, 131073, 1, -2097136, 131073, 1, -2097135, 131073, 1, -2097134, 131073, 1, -2097133, 131073, 1, -2097132, 131073, 1, -2097131, 131073, 1, -1966068, 65537, 1, -1966067, 131073, 1, -1966065, 131073, 1, -1966066, 131073, 1, -1966062, 131073, 1, -1966063, 131073, 1, -1966064, 131073, 1, -1966061, 262145, 3, -1900525, 262145, 4, -1966060, 327681, 3, -1966059, 131073, 1, -1900524, 327681, 4, -1900526, 131073, 2, -1900527, 131073, 2, -1900528, 131073, 2, -1900529, 131073, 2, -1900530, 131073, 2, -1900531, 131073, 2, -1900532, 65537, 2, -1900523, 131073, 2, -2097130, 196609, 1, -2031594, 196609, 1, -1966058, 196609, 1, -2162666, 196609, 0, -1900522, 196609, 2, -1834989, 262145, 5, -1834988, 327681, 5, -1769453, 262145, 5, -1769452, 327681, 5)
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(344, 170)
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
-
 [node name="CharacterBody2D" parent="." instance=ExtResource("8_hymr3")]
-position = Vector2(123, 127)
+position = Vector2(130, 148)
 
 [node name="AnimalCow" parent="." instance=ExtResource("8_hymr3")]
-position = Vector2(281, 95)
+position = Vector2(298, 40)
 
 [node name="AnimalCow2" parent="." instance=ExtResource("8_hymr3")]
-position = Vector2(224, 176)
+position = Vector2(218, 166)
+move_speed = 50.0
+
+[node name="Chest" parent="." instance=ExtResource("9_5c3vq")]
+position = Vector2(308, 183)
+
+[node name="Chest2" parent="." instance=ExtResource("9_5c3vq")]
+position = Vector2(346, 123)
+
+[node name="Bed" parent="." instance=ExtResource("10_2j7db")]
+position = Vector2(390, 182)

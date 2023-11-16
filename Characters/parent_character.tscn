@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dybxvblf26dux"]
+
+[ext_resource type="Script" path="res://Characters/parent_character.gd" id="1_vl65e"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1n0qq"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_t4dnt"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_vl65e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_1n0qq")
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_t4dnt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
